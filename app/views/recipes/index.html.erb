@@ -9,7 +9,7 @@
         <%= link_to recipe_path(recipe.id), class: 'recipe-link' do %>
         <div class='item-img-content'>
         <% if recipe.image.attached? %>
-        <%= image_tag recipe.image, size: '185x50', class: "recipe-img" %>
+        <%= image_tag recipe.image, class: "recipe-img" %>
         <% end %>
         </div>
 
@@ -23,7 +23,7 @@
     <% if @recipes.empty? %>
       <li class='list'>
         <%= link_to '#' do %>
-        <%= image_tag "user.jpg",size: '185x50', class: "recipe-img" %>
+        <%= image_tag "user.jpg", class: "recipe-img" %>
         <div class='recipe-info'>
           <h3 class='recipe-name'>
             レシピを追加してね！
