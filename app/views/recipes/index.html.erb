@@ -1,0 +1,42 @@
+<body>
+<%# レシピ一覧 %>
+<div class='recipe-screen'>
+  <div class='recipe-contents'>
+    <ul class='item-lists'>
+    <% @recipes.each do |recipe| %>
+      <li class='list'>
+
+        <%= link_to recipe_path(recipe.id), class: 'recipe-link' do %>
+        <div class='item-img-content'>
+        <% if recipe.image.attached? %>
+        <%= image_tag recipe.image, size: '185x50', class: "recipe-img" %>
+        <% end %>
+        </div>
+
+        <div class='recipe-info'>
+          <h3 class='recipe-name'>
+            <%= recipe.name %>
+          </h3>
+        </div>
+        <% end %>
+    <% end %>
+    <% if @recipes.empty? %>
+      <li class='list'>
+        <%= link_to '#' do %>
+        <%= image_tag "user.jpg",size: '185x50', class: "recipe-img" %>
+        <div class='recipe-info'>
+          <h3 class='recipe-name'>
+            レシピを追加してね！
+          </h3>
+        </div>
+        <% end %>
+      </li>
+    <% end %>
+    </ul>
+  </div>
+</div>
+<%# /レシピ一覧 %>
+<%= link_to new_recipe_path, class: 'add-recipe-btn' do %>
+  <span class='add-recipe--btn-text'>マイレシピを追加する</span>
+<% end %>
+</body>
