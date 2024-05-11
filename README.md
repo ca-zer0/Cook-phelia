@@ -1,24 +1,61 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column             | Type   | Options                   |
+| -----------------  | ------ | --------                  |
+| email              | string | null: false, unique: true |
+| encrypted_password | string | null: false               |
+| name               | string | null: false               |
 
-* Ruby version
+has_many :lists
+has_many :resipes
 
-* System dependencies
+## recipes テーブル
 
-* Configuration
+| Column             | Type    | Options     |
+| -----------------  | ------  | --------    |
+| name               | string  | null: false |
+| category_id        | integer | null: false |
+| kondate_id         | integer | null: false |
+| people             | string  | null: false |
 
-* Database creation
+belongs_to :category
+belongs_to :kondate
+has_many :foods, dependent: :destroy
+has_one_attached :image
+belongs_to :lists
+has_many :users
 
-* Database initialization
 
-* How to run the test suite
+## foods テーブル
 
-* Services (job queues, cache servers, search engines, etc.)
+| Column    | Type       | Options     |
+| -------   | ------     | --------    |
+| name      | string     | null: false |
+| amount    | integer    | null: false |
+| unit      | string     | null: false |
+| recipe_id | references | null: false |
 
-* Deployment instructions
+belongs_to :recipe
 
-* ...
+## recipe_foods テーブル
+
+| Column | Type       | Options     |
+| -------| ------     | --------    |
+| recipe | references | null: false |
+| food   | references | null: false |
+
+belongs_to :recipe
+belongs_to :food
+
+
+## lists テーブル
+
+| Column | Type       | Options     |
+| -------| ------     | --------    |
+| user   | references | null: false |
+| memo   | text       |             |
+
+belongs_to :user
+has_many :recipes
