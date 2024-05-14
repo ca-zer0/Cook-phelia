@@ -20,5 +20,17 @@ class RecipesController < ApplicationController
       render :new, alert: recipe.errors.full_messages
     end
   end
+
+  private
+
+  def recipe_params
+    params.require(:recipe).permit(:image, :name, :category_id, :kondate_id, :people, foods: [:name, :amount])
+    end
+  
+  def foods_params
+    params.require(:foods).map do |food|
+      food.permit(:name, :amount, :recipe_id)
+    end
+  end
   
 end
