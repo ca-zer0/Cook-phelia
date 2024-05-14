@@ -27,6 +27,23 @@ class RecipesController < ApplicationController
     @recipe_food = Recipe.find(params[:id])
   end
 
+  def edit
+    @recipe_food = Recipe.find(params[:id])
+  end
+
+  def update
+    ActiveRecord::Base.transaction do
+      @recipe_food.update!(recipe_params)
+      @recipe_food.foods.each_with_index do |food, i|
+        food.update!(foods_params[i])
+      end
+    end
+    redirect_to recipe_path
+  rescue ActiveRecord::RecordInvalid
+    Rails.logger.debug @recipe_food.errors.full_messages
+    render :edit, status: :unprocessable_entity
+  end
+
   private
 
   def recipe_params
