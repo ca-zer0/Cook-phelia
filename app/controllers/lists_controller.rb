@@ -2,6 +2,8 @@ class ListsController < ApplicationController
 
   def index
     @lists = List.includes(:recipe).all
+    @recipe_ids = List.pluck(:recipe_id)
+    @recipes = Recipe.where(id: @recipe_ids)
   end
 
   def create
