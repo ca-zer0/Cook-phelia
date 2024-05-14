@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   before_action :authenticate_user!, except: [:index,:show]
-  before_action :set_recipe, only: [:show, :edit, :update]
+  before_action :set_recipe, only: [:show, :edit, :update, :destroy]
 
   def index
     @recipes = Recipe.all.order("created_at DESC")
@@ -41,6 +41,11 @@ class RecipesController < ApplicationController
   rescue ActiveRecord::RecordInvalid
     Rails.logger.debug @recipe_food.errors.full_messages
     render :edit, status: :unprocessable_entity
+  end
+
+  def destroy
+    @recipe_food.destroy
+    redirect_to root_path
   end
 
   private
