@@ -1,0 +1,74 @@
+<head>
+  <%= stylesheet_link_tag 'recipes/new', :media => "all" %>
+  <%= stylesheet_link_tag 'reset', :media => "all" %>
+  <%= javascript_include_tag 'new' %>
+</head>
+
+<body>
+<div class='add-recipes-screen'>
+  <h2 class="add-recipes-title">料理の情報を入力</h2>
+  <%= form_with model: @recipe_food, url: recipes_path, local: true do |f| %>
+    <%= render 'shared/error_messages', model: @recipe_food %>
+
+    <div class='add-recipes-main'>
+
+    <div class='left-contents'>
+      <div class="img-upload">
+        <div class="weight-bold-text">
+          料理画像
+          <span class="indispensable">必須</span>
+        </div>
+        <div class="click-upload">
+          <p>
+            クリックしてファイルをアップロード
+          </p>
+          <%= f.file_field :image, id:"recipe-image" %>
+        </div>
+      </div>
+    </div>
+
+    <div class='right-contents'>
+      <div class="new-recipes">
+
+        <div class="weight-bold-text">
+          料理名
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_field :name %>
+        <div class="form">
+          <div class="weight-bold-text">
+            カテゴリー
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"recipe-category"}) %>
+          <div class="weight-bold-text">
+            構成
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.collection_select(:kondate_id, Kondate.all, :id, :name, {}, {class:"select-box", id:"recipe-sales-status"}) %>
+        </div>
+
+        <div class="weight-bold-text">
+          材料
+          <span class="indispensable">必須</span>
+        </div>
+    <%= f.text_field :people, class:"food-text", id:"food-people", placeholder:"例：何人前", maxlength:"15" %>
+    <div class='forms'>
+    <%= f.text_field :name, name: 'foods[][name]', class:"food-text", id:"food-name", placeholder:"例：にんじん", maxlength:"15" %>
+    <%= f.text_field :amount, name: 'foods[][amount]', class:"food-text", id:"food-amount", placeholder:"例：２本", maxlength:"15" %>
+ </div>
+    
+    <button id='add' type='button' style='display: none;'>追加</button>
+    </div>
+      </div>
+    </div>
+    </div>
+    <div class="add-btn-contents">
+      <%= f.submit "追加する" ,class:"add-btn" %><br>
+      <div class='back'>
+      <%=link_to 'もどる', recipes_path, class:'back-btn' %>
+      </div>
+    </div>
+  <% end %>
+</div>
+</body>
