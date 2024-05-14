@@ -18,7 +18,14 @@
         <% end %>
       </div>
       <div class='list-right'>
-        <!-- ここに右側のコンテンツを記載 -->
+      <% @recipes.each do |recipe| %>
+      
+        <% grouped_foods = recipe.foods.group_by(&:name) %>
+      
+        <% grouped_foods.each do |name, foods| %>
+          <p><%= name %>: <%= foods.sum(&:amount) %></p>
+        <% end %>
+      <% end %>
       </div>
     </div>
   </div>
