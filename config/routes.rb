@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   }
 
   resources :recipes
-  resources :lists, param: :recipe_id, only: [:create, :destroy] do
+  resources :lists, param: :recipe_id, only: [:index, :create, :destroy] do
     get 'check/:recipe_id', to: 'lists#check', as: 'check', on: :collection
   end
 end
