@@ -1,0 +1,21 @@
+<head>
+<%= stylesheet_link_tag 'reset', :media => "all", 'data-turbolinks-track': 'reload' %>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+  <div class='list-screen'>
+    <div class='list-items'>
+      <div class='list-left'>
+        <% @lists.each do |list| %>
+          <div class='image'>
+            <%= image_tag list.recipe.image, class: "list-recipe-img" %>
+          </div>
+        <% end %>
+      </div>
+      <div class='list-right'>
+        <!-- ここに右側のコンテンツを記載 -->
+      </div>
+    </div>
+  </div>
+</body>
