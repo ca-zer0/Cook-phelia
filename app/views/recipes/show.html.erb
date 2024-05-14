@@ -1,0 +1,34 @@
+<head>
+<%= stylesheet_link_tag 'recipes/show', :media => "all", 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag 'reset', :media => "all", 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+  <div class='show-recipe-screen'>
+    <div class='show-recipe-items'>
+      <div class='show-left-items'>
+        <%= image_tag @recipe_food.image, class: "show-recipe-img" %>
+        <div class='show-recipe-name'>
+        <%= @recipe_food.name %>
+        </div>
+      </div>
+      <div class='show-right-items'>
+        <div class='show-categories'>
+          <p>カテゴリー: <%= @recipe_food.category.name %></p>
+          <p>構成: <%= @recipe_food.kondate.name %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='show-recipe-btns'>
+    <%= link_to edit_recipe_path(@recipe_food), class: 'show-edit-recipe-btn' do %>
+      <span class='show-edit-recipe--btn-text'>編集する</span>
+    <% end %>
+    <%= link_to recipe_path(@recipe_food), data: {turbo_method: :delete}, class: 'show-destroy-recipe-btn' do %>
+      <span class='show-destroy-recipe--btn-text'>削除する</span>
+    <% end %>
+    <div class='show-addlist-recipe-btn' id="add-to-list-<%= @recipe_food.id %>" style="cursor:pointer;">
+        <span class='show-addlist-recipe--btn-text'>リストに<br>追加する</span>
+      </div>
+  </div>
+</body>

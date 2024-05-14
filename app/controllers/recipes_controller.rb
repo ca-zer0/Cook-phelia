@@ -1,4 +1,5 @@
 class RecipesController < ApplicationController
+  before_action :authenticate_user!, except: [:index,:show]
 
   def index
     @recipes = Recipe.all.order("created_at DESC")
@@ -22,6 +23,10 @@ class RecipesController < ApplicationController
     end
   end
 
+  def show
+    @recipe_food = Recipe.find(params[:id])
+  end
+
   private
 
   def recipe_params
@@ -33,5 +38,5 @@ class RecipesController < ApplicationController
       food.permit(:name, :amount, :recipe_id)
     end
   end
-  
+
 end

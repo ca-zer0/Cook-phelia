@@ -1,0 +1,87 @@
+.show-recipe-screen{
+  height: 100vh;
+  width: 100vw;
+  background-color: whitesmoke;
+  padding: 50px 0;
+}
+
+.show-recipe-items{
+  width: 85vw;
+  height: 88vh;
+  min-width: 450px;
+  margin: 0 auto;
+  display: flex;
+}
+
+.show-left-items{
+  height: 100%;
+  width: 50%;
+}
+
+.show-right-items{
+  height: 100%;
+  width: 50%;
+  background-color: white;
+}
+
+.show-recipe-img{
+  height: 653px;
+  width: 653px;
+  display: block;
+}
+
+.show-recipe-name{
+  height: 73px;
+  width: 653px;
+  background-color: white;
+  font-size: 30px;
+  text-align: center;
+  line-height: 73px;
+  font-weight: bold;
+  border: 1px solid black;
+}
+
+.show-categories{
+  width: 653px;
+  height: 653px;
+  background-color: white;
+  text-align: center;
+}
+
+p{
+  font-size: 40px;
+  border-bottom: solid 1px gray;
+}
+
+.show-edit-recipe-btn {
+  width: 120px;
+  background: #3ccace;
+  text-align: center;
+  border-radius: 4%;
+  bottom: 32px;
+  right: 130px;
+  position: fixed;
+  padding: 15px;
+}
+
+.show-destroy-recipe-btn {
+  width: 120px;
+  background: #3ccace;
+  text-align: center;
+  border-radius: 4%;
+  bottom: 100px;
+  right: 130px;
+  position: fixed;
+  padding: 15px;
+}
+
+.show-addlist-recipe-btn {
+  width: 120px;
+  background: #3ccace;
+  text-align: center;
+  border-radius: 4%;
+  bottom: 168px;
+  right: 130px;
+  position: fixed;
+  padding: 15px;
+}
