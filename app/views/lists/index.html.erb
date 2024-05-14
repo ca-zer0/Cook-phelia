@@ -10,6 +10,9 @@
         <% @lists.each do |list| %>
           <div class='image'>
             <%= image_tag list.recipe.image, class: "list-recipe-img" %>
+            <div class='delete-recipe-btn' id="delete-to-list-<%= list.recipe.id %>" style="cursor:pointer;">
+              <span class='delete-recipe--btn-text'>×</span>
+            </div>
           </div>
         <% end %>
       </div>
