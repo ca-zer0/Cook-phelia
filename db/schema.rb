@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_05_14_103510) do
+ActiveRecord::Schema[7.0].define(version: 2024_05_14_181307) do
   create_table "active_storage_attachments", charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -46,6 +46,16 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_14_103510) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["recipe_id"], name: "index_foods_on_recipe_id"
+  end
+
+  create_table "lists", charset: "utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "recipe_id"
+    t.text "memo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recipe_id"], name: "index_lists_on_recipe_id"
+    t.index ["user_id"], name: "index_lists_on_user_id"
   end
 
   create_table "recipes", charset: "utf8", force: :cascade do |t|
