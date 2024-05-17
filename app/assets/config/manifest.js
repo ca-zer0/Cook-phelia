@@ -4,3 +4,4 @@
 //= link_tree ../../../vendor/javascript .js
 //= link recipes/show.css
 //= link lists/index.css
+//= link recipes/new.css

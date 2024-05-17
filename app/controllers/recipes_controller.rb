@@ -3,7 +3,11 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
 
   def index
-    @recipes = Recipe.all.order("created_at DESC")
+    if user_signed_in?
+      @recipes = Recipe.where(user_id: current_user.id).order("created_at DESC")
+    else
+      @recipes = Recipe.all.order("created_at DESC")
+    end
   end
 
   def new
