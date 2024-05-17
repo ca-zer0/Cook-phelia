@@ -22,8 +22,8 @@
     <% end %>
     <% if @recipes.empty? %>
       <li class='list'>
-        <%= link_to '#' do %>
-        <%= image_tag "user.jpg", class: "recipe-img" %>
+        <%= link_to new_recipe_path do %>
+        <%= image_tag "cook.png", class: "recipe-img" %>
         <div class='recipe-info'>
           <h3 class='recipe-name'>
             レシピを追加してね！
