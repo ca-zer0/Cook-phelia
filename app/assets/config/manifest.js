@@ -5,3 +5,5 @@
 //= link recipes/show.css
 //= link lists/index.css
 //= link recipes/new.css
+//= link shared/header.css
+//= link recipes/index.css
