@@ -9,7 +9,7 @@
   display: flex;
   align-items: center;
 }
-.title{
+.header-title{
   font-size: 35px;
   text-decoration: none;
   margin-left: 30px;
@@ -17,17 +17,17 @@
   font-weight: bold;
 }
 
-.nav-btn{
+.header-nav-btn{
   margin-left: 30px;
 }
 
-.screen{
+.header-screen{
   margin-left: 370px;
   font-size: 35px;
   color: black;
 }
 
-.lists-btn{
+.header-lists-btn{
   margin-left: 530px;
   font-size: 60px;
   color: black;
@@ -42,11 +42,11 @@
   display: none;
 }
 
-.show-lists {
+.header-show-lists {
   position: absolute;
 }
 
-.pull-down-list {
+.header-pull-down-list {
   position: relative;
   border: solid 1px black;
   margin-left: 6px;
@@ -57,7 +57,7 @@
   text-align: center;
 }
 
-.list-down{
+.header-list-down{
   position: relative;
   border: solid 1px black;
   margin-top: 4px;
@@ -69,12 +69,12 @@
   text-align: center;
 }
 
-.path{
+.header-path{
   text-decoration: none;
   color: black;
 }
 
-.nav-btn,
-.lists-btn {
+.header-nav-btn,
+.header-lists-btn {
     cursor: pointer;
 }
