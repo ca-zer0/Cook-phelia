@@ -28,7 +28,9 @@
 }
 
 .header-lists-btn{
-  margin-left: 550px;
+  position: fixed;
+  right: 55px;
+  top: 0px;
   font-size: 60px;
   color: black;
   height: 70px;
@@ -43,7 +45,8 @@
 }
 
 .header-show-lists {
-  position: absolute;
+  position: fixed;
+  top: 84px;
 }
 
 .header-pull-down-list {
@@ -75,6 +78,36 @@
 }
 
 .header-nav-btn,
-.header-lists-btn {
+.header-lists-btn,
+.header-list-down,
+.submit-input {
     cursor: pointer;
+}
+
+.form-items{
+  background-color: aliceblue;
+  border: 1px solid black;
+  width: 150px;
+  display: none;
+  padding-top: 10px;
+  position: fixed;
+  top: 84px;
+  right: 190px;
+}
+
+.form-item {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.select-input{
+  width: 90%; /* 必要に応じて幅を調節してください */
+  height: 30px; /* 必要に応じて高さを調節してください */
+}
+
+.submit-input{
+  width: 65%;
+  height: 30px;
 }
