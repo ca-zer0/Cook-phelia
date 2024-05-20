@@ -10,7 +10,7 @@
       <img src="/assets/user.jpg" height="70" width="70" class="user-btn" alt="User">
       </li>
     </ul>
-    <ul class="show-lists hidden" id="pull-down">
+    <ul class="header-show-lists hidden" id="pull-down">
       <li class="header-pull-down-list">編集</li>
       <li class="header-pull-down-list">ログアウト</li>
     </ul>
@@ -27,12 +27,25 @@
       </li>
     </ul>
     <ul class="header-show-lists hidden" id="down-lists">
-      <li class="header-list-down">
-      <%= link_to 'マイレシピ', recipes_path, class: 'header-path' %>
+      <li class="header-list-down" id="search-btn">
+      カテゴリー検索
       </li>
       <li class="header-list-down">
       <%= link_to '買い物リスト', lists_path, class: 'header-path' %>
       </li>
+    </ul>
+    <ul class="header-search-hidden">
+    <%= form_with url: '/recipes/search', method: :get, html: { class: "form-items" } do %>
+      <li class="form-item">
+          <%= select_tag 'category', options_for_select(Category.data.map { |c| [c[:name], c[:id]] }), class: "select-input" %>
+      </li>
+      <li class="form-item">
+          <%= select_tag 'kondate', options_for_select(Kondate.data.map { |k| [k[:name], k[:id]] }), class: "select-input" %>
+      </li>
+      <li class="form-item">
+          <%= submit_tag '検索', class: "submit-input" %>
+      </li>
+    <% end %>
     </ul>
   </div>
 </header>
