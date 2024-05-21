@@ -80,7 +80,8 @@
 .header-nav-btn,
 .header-lists-btn,
 .header-list-down,
-.submit-input {
+.submit-input,
+.header-pull-down-list {
     cursor: pointer;
 }
 
