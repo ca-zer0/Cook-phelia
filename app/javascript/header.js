@@ -1,5 +1,5 @@
 function pullDown() {
-  console.log('click event fired!')
+  console.log('click event fired!');
   const pullDownButton = document.getElementById("lists");
   const pullDownLists = document.getElementById('btn');
   const imgTag = document.querySelector('.user-btn');
@@ -137,4 +137,10 @@ function pullDown() {
   addEventListeners();
 }
 
+// ドキュメントの準備ができたらイベントリスナーを追加
 $(document).ready(pullDown);
+document.addEventListener('DOMContentLoaded', pullDown);
+document.addEventListener('turbo:load', pullDown);
+
+// Turboの完全リロードに対応
+document.addEventListener('turbo:before-cache', removeEventListeners);
