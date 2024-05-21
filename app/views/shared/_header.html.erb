@@ -12,8 +12,17 @@
     </ul>
     <ul class="header-show-lists hidden" id="pull-down">
       <li class="header-pull-down-list" id='user-edit'>編集</li>
-      <li class="header-pull-down-list" id='user-out'>ログアウト</li>
+      <li class="header-pull-down-list" id='user-out'>
+      <% if user_signed_in? %>
+      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, data: { turbo_action: 'replace' }, class: 'header-path' %>
+      <% else %>
+        <%= link_to 'ログイン', new_user_session_path, class: 'header-path' %>
+      <% end %>
+      </li>
     </ul>
+  </div>
+  <div class="user-name">
+      <%= current_user.name %>
   </div>
   <div class='header-screen'>
     <h2 class='screen-title'>
