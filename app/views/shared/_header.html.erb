@@ -1,6 +1,6 @@
+<head>
 <%= stylesheet_link_tag 'shared/header', :media => "all", 'data-turbolinks-track': 'reload' %>
-<%= javascript_include_tag 'header' %>
-
+</head>
 
 <header class='header'>
   <%= link_to 'Cook-phelia', root_path , class: "header-title" %>
@@ -14,7 +14,7 @@
       <li class="header-pull-down-list" id='user-edit'>編集</li>
       <li class="header-pull-down-list" id='user-out'>
       <% if user_signed_in? %>
-      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'header-path' %>
+      <%= link_to 'ログアウト', destroy_user_session_path, data: {turbo_method: :delete}, class: 'header-path' %>
       <% else %>
         <%= link_to 'ログイン', new_user_session_path, class: 'header-path' %>
       <% end %>
@@ -22,7 +22,9 @@
     </ul>
   </div>
   <div class="user-name">
+  <% if user_signed_in? %>
       <%= current_user.name %>
+  <% end %>
   </div>
   <div class='header-screen'>
     <h2 class='screen-title'>
@@ -57,4 +59,5 @@
     <% end %>
     </ul>
   </div>
+  <%= javascript_include_tag 'header' %>
 </header>
