@@ -9,7 +9,8 @@ function pullDown() {
   const shopping = document.getElementById('shopping-btn')
   const userEdit = document.getElementById('user-edit')
   const userOut = document.getElementById('user-out')
-
+  const items = document.getElementsByClassName('form-items');
+  
   imgTag.addEventListener('mouseover', function() {
     this.setAttribute('src', '/assets/user2.jpg');
   });
@@ -38,8 +39,7 @@ function pullDown() {
     if (pullDownList.getAttribute("style") == "display:block;") {
       pullDownList.removeAttribute("style");
   
-      var items = document.getElementsByClassName('form-items');
-      for (var i = 0; i < items.length; i++) {
+      for (let i = 0; i < items.length; i++) {
         items[i].style.display = 'none';
       }
   
@@ -57,8 +57,8 @@ search.addEventListener('mouseout', function() {
 });
 
   search.addEventListener('click', function() {
-    var items = document.getElementsByClassName('form-items');
-    for (var i = 0; i < items.length; i++) {
+    
+    for (let i = 0; i < items.length; i++) {
       if (items[i].style.display === 'none' || items[i].style.display === '') {
         items[i].style.display = 'block';
       } else {

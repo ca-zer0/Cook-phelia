@@ -1,8 +1,10 @@
-window.onload = function() {
-  var add = document.getElementById('add');
+function pullDown() {
+  const add = document.getElementById('add');
+  const forms = document.querySelector('.forms');
+
   add.addEventListener('click', function() {
-    var forms = document.querySelector('.forms');
-    var clone = forms.cloneNode(true);
+    const clone = forms.cloneNode(true);
+
 
     clone.querySelector('#food-name').value = '';
     clone.querySelector('#food-amount').value = '';
@@ -17,6 +19,6 @@ window.onload = function() {
       add.click();
     }
   });
+};
 
-  pullDown();
-}
+$(document).ready(pullDown);
