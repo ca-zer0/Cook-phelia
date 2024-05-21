@@ -11,8 +11,8 @@
       </li>
     </ul>
     <ul class="header-show-lists hidden" id="pull-down">
-      <li class="header-pull-down-list">編集</li>
-      <li class="header-pull-down-list">ログアウト</li>
+      <li class="header-pull-down-list" id='user-edit'>編集</li>
+      <li class="header-pull-down-list" id='user-out'>ログアウト</li>
     </ul>
   </div>
   <div class='header-screen'>
@@ -30,7 +30,7 @@
       <li class="header-list-down" id="search-btn">
       カテゴリー検索
       </li>
-      <li class="header-list-down">
+      <li class="header-list-down" id="shopping-btn">
       <%= link_to '買い物リスト', lists_path, class: 'header-path' %>
       </li>
     </ul>
