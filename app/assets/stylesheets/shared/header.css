@@ -47,12 +47,13 @@
 .header-show-lists {
   position: fixed;
   top: 84px;
+  right: 15px;
 }
 
 .header-pull-down-list {
-  position: relative;
   border: solid 1px black;
-  margin-left: 6px;
+  position: relative;
+  right: 1135px;
   margin-bottom: 3px;
   padding: 5px;
   font-size: 20px;
