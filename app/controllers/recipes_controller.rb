@@ -52,6 +52,15 @@ class RecipesController < ApplicationController
     redirect_to root_path
   end
 
+  def search
+    category_id = params[:category]
+    kondate_id = params[:kondate]
+
+    @recipes = Recipe.all
+    @recipes = @recipes.where(category_id: category_id) if category_id.present?
+    @recipes = @recipes.where(kondate_id: kondate_id) if kondate_id.present?
+  end
+
   private
 
   def recipe_params
