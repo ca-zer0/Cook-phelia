@@ -5,6 +5,7 @@
 </head>
 
 <body>
+<%= render "shared/header" %>
 <div class='add-recipes-screen'>
   <h2 class="add-recipes-title">料理の情報を入力</h2>
   <%= form_with model: @recipe_food, url: recipe_path(@recipe_food), method: :patch, local: true do |f| %>
