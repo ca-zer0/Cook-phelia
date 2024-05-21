@@ -1,4 +1,5 @@
 function pullDown() {
+  if (window.location.pathname == '/recipes/new') {
   const add = document.getElementById('add');
   const forms = document.querySelector('.forms');
 
@@ -19,6 +20,7 @@ function pullDown() {
       add.click();
     }
   });
+};
 };
 
 $(document).ready(pullDown);
