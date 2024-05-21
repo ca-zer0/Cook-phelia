@@ -1,3 +1,7 @@
+$(document).on('turbolinks:load', function() {
+  pullDown();
+});
+
 function pullDown() {
   const pullDownButton = document.getElementById("lists");
   const pullDownLists = document.getElementById('btn');
@@ -11,86 +15,106 @@ function pullDown() {
   const userOut = document.getElementById('user-out')
   const items = document.getElementsByClassName('form-items');
   
+  
   imgTag.addEventListener('mouseover', function() {
-    this.setAttribute('src', '/assets/user2.jpg');
+  this.setAttribute('src', '/assets/user2.jpg');
   });
-
+  
+  
   imgTag.addEventListener('mouseout', function() {
-    this.setAttribute('src', originalSrc);
+  this.setAttribute('src', originalSrc);
   });
-
+  
+  
   pullDownButton.addEventListener('click', function() {
-    if (pullDownParents.getAttribute("style") == "display:block;") {
-      pullDownParents.removeAttribute("style");
-    } else {
-      pullDownParents.setAttribute("style", "display:block;");
-    }
+  if (pullDownParents.getAttribute("style") == "display:block;") {
+  pullDownParents.removeAttribute("style");
+  } else {
+  pullDownParents.setAttribute("style", "display:block;");
+  }
   });
-
+  
+  
   pullDownLists.addEventListener('mouseover', function(){
-    this.setAttribute("style", "background-color:#155791;")
+  this.setAttribute("style", "background-color:#155791;")
   });
-
+  
+  
   pullDownLists.addEventListener('mouseout', function(){
-    this.removeAttribute("style")
+  this.removeAttribute("style")
   });
-
+  
+  
   pullDownLists.addEventListener('click', function() {
-    if (pullDownList.getAttribute("style") == "display:block;") {
-      pullDownList.removeAttribute("style");
+  if (pullDownList.getAttribute("style") == "display:block;") {
+  pullDownList.removeAttribute("style");
   
-      for (let i = 0; i < items.length; i++) {
-        items[i].style.display = 'none';
-      }
   
-    } else {
-      pullDownList.setAttribute("style", "display:block;");
-    }
-  });
-
-  search.addEventListener('mouseover', function() {
-    search.style.fontWeight = "bold";
-});
-
-search.addEventListener('mouseout', function() {
-    search.style.fontWeight = "normal";
-});
-
-  search.addEventListener('click', function() {
-    
     for (let i = 0; i < items.length; i++) {
-      if (items[i].style.display === 'none' || items[i].style.display === '') {
-        items[i].style.display = 'block';
-      } else {
-        items[i].style.display = 'none';
-      }
+      items[i].style.display = 'none';
     }
+  
+  } else {
+    pullDownList.setAttribute("style", "display:block;");
+  }
   });
-
+  
+  
+  search.addEventListener('mouseover', function() {
+  search.style.fontWeight = "bold";
+  });
+  
+  
+  search.addEventListener('mouseout', function() {
+  search.style.fontWeight = "normal";
+  });
+  
+  
+  search.addEventListener('click', function() {
+  
+  
+  for (let i = 0; i < items.length; i++) {
+    if (items[i].style.display === 'none' || items[i].style.display === '') {
+      items[i].style.display = 'block';
+    } else {
+      items[i].style.display = 'none';
+    }
+  }
+  });
+  
+  
   shopping.addEventListener('mouseover', function() {
-    shopping.style.fontWeight = "bold";
+  shopping.style.fontWeight = "bold";
   });
+  
   
   shopping.addEventListener('mouseout', function() {
-    shopping.style.fontWeight = "normal";
+  shopping.style.fontWeight = "normal";
   });
-
+  
+  
   userEdit.addEventListener('mouseover', function() {
-    userEdit.style.fontWeight = "bold";
+  userEdit.style.fontWeight = "bold";
   });
+  
   
   userEdit.addEventListener('mouseout', function() {
-    userEdit.style.fontWeight = "normal";
-  });
-
-  userOut.addEventListener('mouseover', function() {
-    userOut.style.fontWeight = "bold";
+  userEdit.style.fontWeight = "normal";
   });
   
-  userOut.addEventListener('mouseout', function() {
-    userOut.style.fontWeight = "normal";
+  
+  userOut.addEventListener('mouseover', function() {
+  userOut.style.fontWeight = "bold";
   });
-
-};
-
-$(document).ready(pullDown);
+  
+  
+  userOut.addEventListener('mouseout', function() {
+  userOut.style.fontWeight = "normal";
+  });
+  
+  
+  };
+  
+  
+  $(document).ready(pullDown);
+  document.addEventListener('DOMContentLoaded', pullDown);
