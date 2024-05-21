@@ -1,8 +1,5 @@
-$(document).on('turbolinks:load', function() {
-  pullDown();
-});
-
 function pullDown() {
+  console.log('click event fired!')
   const pullDownButton = document.getElementById("lists");
   const pullDownLists = document.getElementById('btn');
   const imgTag = document.querySelector('.user-btn');
@@ -10,111 +7,134 @@ function pullDown() {
   const pullDownParents = document.getElementById("pull-down");
   const pullDownList = document.getElementById("down-lists");
   const search = document.getElementById('search-btn');
-  const shopping = document.getElementById('shopping-btn')
-  const userEdit = document.getElementById('user-edit')
-  const userOut = document.getElementById('user-out')
+  const shopping = document.getElementById('shopping-btn');
+  const userEdit = document.getElementById('user-edit');
+  const userOut = document.getElementById('user-out');
   const items = document.getElementsByClassName('form-items');
-  
-  
-  imgTag.addEventListener('mouseover', function() {
-  this.setAttribute('src', '/assets/user2.jpg');
-  });
-  
-  
-  imgTag.addEventListener('mouseout', function() {
-  this.setAttribute('src', originalSrc);
-  });
-  
-  
-  pullDownButton.addEventListener('click', function() {
-  if (pullDownParents.getAttribute("style") == "display:block;") {
-  pullDownParents.removeAttribute("style");
-  } else {
-  pullDownParents.setAttribute("style", "display:block;");
+
+  // イベントハンドラ関数
+  function mouseOverFunc() {
+    this.setAttribute('src', '/assets/user2.jpg');
   }
-  });
-  
-  
-  pullDownLists.addEventListener('mouseover', function(){
-  this.setAttribute("style", "background-color:#155791;")
-  });
-  
-  
-  pullDownLists.addEventListener('mouseout', function(){
-  this.removeAttribute("style")
-  });
-  
-  
-  pullDownLists.addEventListener('click', function() {
-  if (pullDownList.getAttribute("style") == "display:block;") {
-  pullDownList.removeAttribute("style");
-  
-  
-    for (let i = 0; i < items.length; i++) {
-      items[i].style.display = 'none';
-    }
-  
-  } else {
-    pullDownList.setAttribute("style", "display:block;");
+
+  function mouseOutFunc() {
+    this.setAttribute('src', originalSrc);
   }
-  });
-  
-  
-  search.addEventListener('mouseover', function() {
-  search.style.fontWeight = "bold";
-  });
-  
-  
-  search.addEventListener('mouseout', function() {
-  search.style.fontWeight = "normal";
-  });
-  
-  
-  search.addEventListener('click', function() {
-  
-  
-  for (let i = 0; i < items.length; i++) {
-    if (items[i].style.display === 'none' || items[i].style.display === '') {
-      items[i].style.display = 'block';
+
+  function pullDownButtonClick() {
+    if (pullDownParents.getAttribute("style") === "display:block;") {
+      pullDownParents.removeAttribute("style");
     } else {
-      items[i].style.display = 'none';
+      pullDownParents.setAttribute("style", "display:block;");
     }
   }
-  });
-  
-  
-  shopping.addEventListener('mouseover', function() {
-  shopping.style.fontWeight = "bold";
-  });
-  
-  
-  shopping.addEventListener('mouseout', function() {
-  shopping.style.fontWeight = "normal";
-  });
-  
-  
-  userEdit.addEventListener('mouseover', function() {
-  userEdit.style.fontWeight = "bold";
-  });
-  
-  
-  userEdit.addEventListener('mouseout', function() {
-  userEdit.style.fontWeight = "normal";
-  });
-  
-  
-  userOut.addEventListener('mouseover', function() {
-  userOut.style.fontWeight = "bold";
-  });
-  
-  
-  userOut.addEventListener('mouseout', function() {
-  userOut.style.fontWeight = "normal";
-  });
-  
-  
-  };
-  
-  
-  $(document).ready(pullDown);
-  document.addEventListener('DOMContentLoaded', pullDown);
+
+  function pullDownListsMouseOver() {
+    this.setAttribute("style", "background-color:#155791;");
+  }
+
+  function pullDownListsMouseOut() {
+    this.removeAttribute("style");
+  }
+
+  function pullDownListsClick() {
+    if (pullDownList.getAttribute("style") === "display:block;") {
+      pullDownList.removeAttribute("style");
+
+      for (let i = 0; i < items.length; i++) {
+        items[i].style.display = 'none';
+      }
+    } else {
+      pullDownList.setAttribute("style", "display:block;");
+    }
+  }
+
+  function searchMouseOver() {
+    search.style.fontWeight = "bold";
+  }
+
+  function searchMouseOut() {
+    search.style.fontWeight = "normal";
+  }
+
+  function searchClick() {
+    for (let i = 0; i < items.length; i++) {
+      if (items[i].style.display === 'none' || items[i].style.display === '') {
+        items[i].style.display = 'block';
+      } else {
+        items[i].style.display = 'none';
+      }
+    }
+  }
+
+  function shoppingMouseOver() {
+    shopping.style.fontWeight = "bold";
+  }
+
+  function shoppingMouseOut() {
+    shopping.style.fontWeight = "normal";
+  }
+
+  function userEditMouseOver() {
+    userEdit.style.fontWeight = "bold";
+  }
+
+  function userEditMouseOut() {
+    userEdit.style.fontWeight = "normal";
+  }
+
+  function userOutMouseOver() {
+    userOut.style.fontWeight = "bold";
+  }
+
+  function userOutMouseOut() {
+    userOut.style.fontWeight = "normal";
+  }
+
+  // イベントリスナーを削除する関数
+  function removeEventListeners() {
+    imgTag.removeEventListener('mouseover', mouseOverFunc);
+    imgTag.removeEventListener('mouseout', mouseOutFunc);
+    pullDownButton.removeEventListener('click', pullDownButtonClick);
+    pullDownLists.removeEventListener('mouseover', pullDownListsMouseOver);
+    pullDownLists.removeEventListener('mouseout', pullDownListsMouseOut);
+    pullDownLists.removeEventListener('click', pullDownListsClick);
+    search.removeEventListener('mouseover', searchMouseOver);
+    search.removeEventListener('mouseout', searchMouseOut);
+    search.removeEventListener('click', searchClick);
+    shopping.removeEventListener('mouseover', shoppingMouseOver);
+    shopping.removeEventListener('mouseout', shoppingMouseOut);
+    userEdit.removeEventListener('mouseover', userEditMouseOver);
+    userEdit.removeEventListener('mouseout', userEditMouseOut);
+    userOut.removeEventListener('mouseover', userOutMouseOver);
+    userOut.removeEventListener('mouseout', userOutMouseOut);
+  }
+
+  // イベントリスナーを追加する関数
+  function addEventListeners() {
+    // 既存のイベントリスナーを全て削除
+    removeEventListeners();
+
+    // イベントリスナーを再追加
+    imgTag.addEventListener('mouseover', mouseOverFunc);
+    imgTag.addEventListener('mouseout', mouseOutFunc);
+    pullDownButton.addEventListener('click', pullDownButtonClick);
+    pullDownLists.addEventListener('mouseover', pullDownListsMouseOver);
+    pullDownLists.addEventListener('mouseout', pullDownListsMouseOut);
+    pullDownLists.addEventListener('click', pullDownListsClick);
+    search.addEventListener('mouseover', searchMouseOver);
+    search.addEventListener('mouseout', searchMouseOut);
+    search.addEventListener('click', searchClick);
+    shopping.addEventListener('mouseover', shoppingMouseOver);
+    shopping.addEventListener('mouseout', shoppingMouseOut);
+    userEdit.addEventListener('mouseover', userEditMouseOver);
+    userEdit.addEventListener('mouseout', userEditMouseOut);
+    userOut.addEventListener('mouseover', userOutMouseOver);
+    userOut.addEventListener('mouseout', userOutMouseOut);
+  }
+
+  // 初期イベントリスナーの追加
+  addEventListeners();
+}
+
+$(document).ready(pullDown);
