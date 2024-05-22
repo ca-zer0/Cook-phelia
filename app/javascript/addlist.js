@@ -1,4 +1,4 @@
-$(document).ready(function(){
+function addList() {
   $.ajaxSetup({
       headers: {
           'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
@@ -85,4 +85,7 @@ $(document).ready(function(){
       });
     });
   });
-});
+};
+
+$(document).ready(addList);
+document.addEventListener('turbo:load', addList);
