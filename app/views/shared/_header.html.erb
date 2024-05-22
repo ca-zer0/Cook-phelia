@@ -27,9 +27,22 @@
   <% end %>
   </div>
   <div class='header-screen'>
-    <h2 class='screen-title'>
-    マイレシピ
-    </h2>
+    <% case controller.action_name %>
+      <% when 'new' %>
+        <%= 'レシピ追加' %>
+      <% when 'edit' %>
+        <%= 'レシピ編集' %>
+      <% when 'search' %>
+        <%= '検索結果一覧' %>
+      <% when 'show' %>
+        <%= 'レシピ詳細' %>
+      <% else %>
+        <% if user_signed_in? %>
+          <%= 'マイレシピ' %>
+        <% else %>
+          <%= 'レシピ一覧' %>
+        <% end %>
+    <% end %>
   </div>
   <div class='nav'>
     <ul class='lists-bar'>
