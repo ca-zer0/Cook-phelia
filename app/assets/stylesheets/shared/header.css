@@ -22,7 +22,9 @@
 }
 
 .header-screen{
-  margin-left: 330px;
+  position: fixed;
+  top: 10px;
+  left: 680px;
   font-size: 35px;
   color: black;
 }
