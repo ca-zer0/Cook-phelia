@@ -61,7 +61,7 @@ class RecipesController < ApplicationController
       @recipes = @recipes.where(kondate_id: params[:kondate])
     end
     render 'search'
-end
+  end
 
   private
 
