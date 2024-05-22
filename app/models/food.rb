@@ -1,5 +1,5 @@
 class Food < ApplicationRecord
   belongs_to :recipe
-  # belongs_to :list
+  validates :name, :amount, :unit, presence: true
 end
 
