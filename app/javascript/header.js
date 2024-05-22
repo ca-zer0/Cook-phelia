@@ -135,12 +135,11 @@ function pullDown() {
 
   // 初期イベントリスナーの追加
   addEventListeners();
-}
+  }
+  
+  
+  // ドキュメントの準備ができたらイベントリスナーを追加
+  $(document).ready(pullDown);
+  document.addEventListener('DOMContentLoaded', pullDown);
+  document.addEventListener('turbo:load', pullDown);
 
-// ドキュメントの準備ができたらイベントリスナーを追加
-$(document).ready(pullDown);
-document.addEventListener('DOMContentLoaded', pullDown);
-document.addEventListener('turbo:load', pullDown);
-
-// Turboの完全リロードに対応
-document.addEventListener('turbo:before-cache', removeEventListeners);
