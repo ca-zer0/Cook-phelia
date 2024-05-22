@@ -7,3 +7,4 @@
 //= link recipes/new.css
 //= link shared/header.css
 //= link recipes/index.css
+//= link shared/footer.css
