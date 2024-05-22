@@ -1,0 +1,125 @@
+* {
+  box-sizing: border-box;
+}
+
+.header {
+  width: 100vw;
+  height: 70px;
+  background-color:aliceblue;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+}
+
+.header-title{
+  font-size: 35px;
+  text-decoration: none;
+  margin-left: 30px;
+  color: black;
+  font-weight: bold;
+}
+
+.header-nav-btn{
+  margin-left: 30px;
+}
+
+.header-screen{
+  position: fixed;
+  top: 10px;
+  left: 680px;
+  font-size: 35px;
+  color: black;
+}
+
+.header-lists-btn{
+  position: fixed;
+  right: 55px;
+  top: 0px;
+  font-size: 60px;
+  color: black;
+  height: 70px;
+  width: 70px;
+  text-align: center;
+  line-height: 37px;
+  padding-top: 20px;
+}
+
+.hidden{
+  display: none;
+}
+
+.header-show-lists {
+  position: fixed;
+  top: 84px;
+  right: 15px;
+}
+
+.header-pull-down-list {
+  border: solid 1px black;
+  position: relative;
+  right: 1135px;
+  margin-bottom: 3px;
+  padding: 5px;
+  font-size: 20px;
+  background-color: aliceblue;
+  text-align: center;
+}
+
+.header-list-down{
+  position: relative;
+  border: solid 1px black;
+  margin-top: 4px;
+  margin-left: 500px;
+  margin-bottom: 3px; 
+  padding: 5px;
+  font-size: 20px;
+  background-color: aliceblue;
+  text-align: center;
+}
+
+.header-path{
+  text-decoration: none;
+  color: black;
+}
+
+.header-nav-btn,
+.header-lists-btn,
+.header-list-down,
+.submit-input,
+.header-pull-down-list {
+    cursor: pointer;
+}
+
+.form-items{
+  background-color: aliceblue;
+  border: 1px solid black;
+  width: 150px;
+  display: none;
+  padding-top: 10px;
+  position: fixed;
+  top: 84px;
+  right: 190px;
+}
+
+.form-item {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.select-input{
+  width: 90%; /* 必要に応じて幅を調節してください */
+  height: 30px; /* 必要に応じて高さを調節してください */
+}
+
+.submit-input{
+  width: 65%;
+  height: 30px;
+}
+
+.user-name{
+  font-size: 20px;
+  margin-left: 3px;
+}

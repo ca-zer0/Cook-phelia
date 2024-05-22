@@ -1,0 +1,79 @@
+<head>
+<%= stylesheet_link_tag 'shared/header', :media => "all", 'data-turbolinks-track': 'reload' %>
+</head>
+
+<header class='header'>
+  <%= link_to 'Cook-phelia', root_path , class: "header-title" %>
+  <div class='user'>
+    <ul class='user-nav'>
+      <li class='header-nav-btn' id="lists">
+      <img src="/assets/user.jpg" height="70" width="70" class="user-btn" alt="User">
+      </li>
+    </ul>
+    <ul class="header-show-lists hidden" id="pull-down">
+      <li class="header-pull-down-list" id='user-edit'>編集</li>
+      <li class="header-pull-down-list" id='user-out'>
+      <% if user_signed_in? %>
+      <%= link_to 'ログアウト', destroy_user_session_path, data: {turbo_method: :delete}, class: 'header-path' %>
+      <% else %>
+        <%= link_to 'ログイン', new_user_session_path, class: 'header-path' %>
+      <% end %>
+      </li>
+    </ul>
+  </div>
+  <div class="user-name">
+  <% if user_signed_in? %>
+  <%= "#{current_user.name}さん" %>
+  <% end %>
+  </div>
+  <div class='header-screen'>
+  <% if controller.controller_name == 'lists' %>
+    <%= '買い物リスト'%>
+  <% else %>
+    <% case controller.action_name %>
+      <% when 'new' %>
+        <%= 'レシピ追加' %>
+      <% when 'edit' %>
+        <%= 'レシピ編集' %>
+      <% when 'search' %>
+        <%= '検索結果一覧' %>
+      <% when 'show' %>
+        <%= 'レシピ詳細' %>
+      <% else %>
+        <% if user_signed_in? %>
+          <%= 'マイレシピ' %>
+        <% else %>
+          <%= 'レシピ一覧' %>
+        <% end %>
+    <% end %>
+  <% end %>
+  </div>
+  <div class='nav'>
+    <ul class='lists-bar'>
+      <li class="header-lists-btn" id="btn">
+      ≡
+      </li>
+    </ul>
+    <ul class="header-show-lists hidden" id="down-lists">
+      <li class="header-list-down" id="search-btn">
+      カテゴリー検索
+      </li>
+      <li class="header-list-down" id="shopping-btn">
+      <%= link_to '買い物リスト', lists_path, class: 'header-path' %>
+      </li>
+    </ul>
+    <ul class="header-search-hidden">
+    <%= form_with url: '/recipes/search', method: :get, html: { class: "form-items" } do %>
+      <li class="form-item">
+          <%= select_tag 'category', options_for_select(Category.data.map { |c| [c[:name], c[:id]] }), class: "select-input" %>
+      </li>
+      <li class="form-item">
+          <%= select_tag 'kondate', options_for_select(Kondate.data.map { |k| [k[:name], k[:id]] }), class: "select-input" %>
+      </li>
+      <li class="form-item">
+          <%= submit_tag '検索', class: "submit-input" %>
+      </li>
+    <% end %>
+    </ul>
+  </div>
+</header>

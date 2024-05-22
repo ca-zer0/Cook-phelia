@@ -1,10 +1,10 @@
 <head>
-  <%= stylesheet_link_tag 'recipes/new', :media => "all" %>
   <%= stylesheet_link_tag 'reset', :media => "all" %>
-  <%= javascript_include_tag 'new' %>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
+<%= render "shared/header" %>
 <div class='add-recipes-screen'>
   <h2 class="add-recipes-title">料理の情報を入力</h2>
   <%= form_with model: @recipe_food, url: recipes_path, local: true do |f| %>
@@ -71,4 +71,6 @@
     </div>
   <% end %>
 </div>
+<%= render "shared/footer" %>
+<%= javascript_include_tag 'new' %>
 </body>

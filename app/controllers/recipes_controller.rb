@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  before_action :authenticate_user!, except: [:index,:show]
+  before_action :authenticate_user!, except: [:index,:show, :search]
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -51,6 +51,17 @@ class RecipesController < ApplicationController
     @recipe_food.destroy
     redirect_to root_path
   end
+
+  def search
+    @recipes = Recipe.all
+    if params[:category].present? && params[:category] != '1'
+      @recipes = @recipes.where(category_id: params[:category])
+    end
+    if params[:kondate].present? && params[:kondate] != '1'
+      @recipes = @recipes.where(kondate_id: params[:kondate])
+    end
+    render 'search'
+end
 
   private
 
