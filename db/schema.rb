@@ -42,6 +42,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_14_181307) do
   create_table "foods", charset: "utf8", force: :cascade do |t|
     t.string "name"
     t.string "amount"
+    t.string "unit"
     t.bigint "recipe_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

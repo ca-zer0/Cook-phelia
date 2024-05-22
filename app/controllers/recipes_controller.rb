@@ -20,7 +20,7 @@ class RecipesController < ApplicationController
   
     if recipe.save
       params[:foods].each do |food_params|
-        recipe.foods.create(food_params.permit(:name, :amount))
+        recipe.foods.create(food_params.permit(:name, :amount, :unit))
       end
       redirect_to recipes_path, notice: 'Recipe was successfully created.'
     else
@@ -61,12 +61,12 @@ class RecipesController < ApplicationController
       @recipes = @recipes.where(kondate_id: params[:kondate])
     end
     render 'search'
-end
+  end
 
   private
 
   def recipe_params
-    params.require(:recipe).permit(:image, :name, :category_id, :kondate_id, :people, foods: [:name, :amount])
+    params.require(:recipe).permit(:image, :name, :category_id, :kondate_id, :people, foods: [:name, :amount, :unit])
     end
   
   def foods_params
