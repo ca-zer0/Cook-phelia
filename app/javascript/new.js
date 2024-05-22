@@ -24,21 +24,24 @@ function addForms() {
     };
   };
 
-  document.querySelector(".new-forms").addEventListener("submit", function(event){
+  var form = document.querySelector(".new-forms");
+if(form) {
+  form.addEventListener("submit", function(event){
     var name = document.querySelector("#food-name");
     var amount = document.querySelector("#food-amount");
     var unit = document.querySelector("#food-unit");
-  
-    if(name.value.trim() == ""){
+
+    if(name && name.value.trim() == ""){
       name.removeAttribute('name');
     }
-    if(amount.value.trim() == ""){
+    if(amount && amount.value.trim() == ""){
       amount.removeAttribute('name');
     }
-    if(unit.value.trim() == ""){
+    if(unit && unit.value.trim() == ""){
       unit.removeAttribute('name');
     }
   });
+}
 
   $(document).ready(addForms);
   window.addEventListener("turbo:render", addForms);

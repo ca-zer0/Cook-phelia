@@ -1,34 +1,36 @@
 .show-recipe-screen{
-  height: 100vh;
-  width: 100vw;
   background-color: whitesmoke;
-  padding: 50px 0;
-  margin-top: 70px;
+  width: 100vw;
+  height: 100%;
+  padding: 50px ;
+  padding-top: 95px;
 }
 
 .show-recipe-items{
   width: 85vw;
-  height: 88vh;
   min-width: 450px;
   margin: 0 auto;
+  background-color: white;
   display: flex;
+  border: 1px solid black;
 }
 
-.show-left-items{
+.show-left-items,
+.show-right-items{
   height: 100%;
   width: 50%;
 }
 
 .show-right-items{
-  height: 100%;
-  width: 50%;
-  background-color: white;
+  border-left: 1px solid black;
 }
+
 
 .show-recipe-img{
   height: 653px;
   width: 653px;
   display: block;
+  border-bottom: 1px solid black;
 }
 
 .show-recipe-name{
@@ -39,11 +41,11 @@
   text-align: center;
   line-height: 73px;
   font-weight: bold;
-  border: 1px solid black;
+  border-right: 1px solid black;
 }
 
 .show-categories{
-  width: 653px;
+  width: 651px;
   height: 653px;
   background-color: white;
   text-align: center;
@@ -54,35 +56,91 @@ p{
   border-bottom: solid 1px gray;
 }
 
+p.food {
+  border-bottom: none;
+  margin-top: 50px;
+  text-align: start;
+  padding-left: 40px;
+}
+
+p.no-border{
+  border-bottom: none;
+}
+
+p.recipe-people {
+  font-size: 20px;
+  border-bottom: none;
+  text-align: start;
+  padding-left: 45px;
+}
+
 .show-edit-recipe-btn {
-  width: 120px;
-  background: #3ccace;
+  width: 150px;
   text-align: center;
   border-radius: 4%;
-  bottom: 32px;
+  bottom:186px;
   right: 130px;
   position: fixed;
   padding: 15px;
+  text-decoration: none;
 }
 
 .show-destroy-recipe-btn {
-  width: 120px;
-  background: #3ccace;
+  width: 150px;
   text-align: center;
   border-radius: 4%;
-  bottom: 100px;
+  bottom: 118px;
+  right: 130px;
+  position: fixed;
+  padding: 15px;
+  text-decoration: none;
+}
+
+.show-addlist-recipe-btn {
+  width: 150px;
+  text-align: center;
+  border-radius: 4%;
+  bottom: 50px;
   right: 130px;
   position: fixed;
   padding: 15px;
 }
 
-.show-addlist-recipe-btn {
-  width: 120px;
-  background: #3ccace;
-  text-align: center;
-  border-radius: 4%;
-  bottom: 168px;
-  right: 130px;
-  position: fixed;
-  padding: 15px;
+.show-edit-recipe-btn,
+.show-destroy-recipe-btn,
+.show-addlist-recipe-btn{
+  color: #fff;
+  background-color: #eb6100;
+  border-bottom: 5px solid #b84c00;
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+
+
+}
+
+.show-edit-recipe-btn:hover,
+.show-destroy-recipe-btn:hover,
+.show-addlist-recipe-btn:hover{
+  margin-top: 3px;
+  color: #fff;
+  background: #f56500;
+  border-bottom: 2px solid #b84c00;
+}
+
+
+.food-item {
+  margin-top: 15px;
+  padding: 0 45px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px dotted black;
+  font-size: 25px;
+}
+
+.food-name {
+  text-align: left;
+}
+
+.food-amount-unit {
+  text-align: right;
 }

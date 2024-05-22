@@ -1,9 +1,12 @@
-$(document).ready(function(){
+function setCSRFToken() {
   $.ajaxSetup({
       headers: {
           'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
       }
   });
+}
+
+function addList() {
 
   // ボタンのID毎に処理を行う
   $("[id^='add-to-list-']").each(function() {
@@ -12,6 +15,8 @@ $(document).ready(function(){
 
     // ボタンの初期表示をセット
     $.ajax({
+      // Ajax設定を行う
+      beforeSend: setCSRFToken,
       url: "/lists/check/" + recipeID,
       method: "GET",
       success: function(response){
@@ -35,6 +40,7 @@ $(document).ready(function(){
       }
 
       $.ajax({
+        beforeSend: setCSRFToken,
         url: "/lists/check/" + recipeID,
         method: "GET",
         success: function(response){
@@ -67,7 +73,7 @@ $(document).ready(function(){
                 console.log("Something went wrong while adding the item");
               }
             });
-          } else { //DELETEの場合はデータを送信しません
+           } else { //DELETEの場合はデータを送信しません
             $.ajax({
               url: url,
               method: method,
@@ -80,9 +86,21 @@ $(document).ready(function(){
                 console.log("Something went wrong while removing the item");
               }
             });
-          };
+          }
         }
       });
     });
   });
+}
+
+
+
+$(document).ready(function() {
+    setCSRFToken();
+    addList();
+});
+
+window.addEventListener("turbo:render", function() {
+    setCSRFToken();
+    addList();
 });
