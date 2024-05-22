@@ -7,8 +7,8 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
 
-  resources :recipes
-    get '/recipes/search', to: 'recipes#search'
+  get '/recipes/search', to: 'recipes#search'
+resources :recipes
 
   resources :lists, param: :recipe_id, only: [:index, :create, :destroy] do
     get 'check/:recipe_id', to: 'lists#check', as: 'check', on: :collection
