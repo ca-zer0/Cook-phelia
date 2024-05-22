@@ -8,7 +8,10 @@
   background-color:aliceblue;
   display: flex;
   align-items: center;
+  position: fixed;
+  top: 0;
 }
+
 .header-title{
   font-size: 35px;
   text-decoration: none;
