@@ -36,6 +36,7 @@
 .recipe-img{
   width: 250px;
   height: 250px;
+  border: 1px solid black;
 }
 
 .recipe-name{
@@ -43,24 +44,28 @@
   font-size: 20px;
   font-weight: bold;
   background-color: whitesmoke;
+  border: 1px solid black;
 }
 
 .add-recipe-btn {
-  width: 600px;
-  background: #e46829;
-  text-align: center;
-  border-radius: 25%;
+  border-bottom: 5px solid #9f000c;
+  border-radius: 100px;
   position: fixed;
   bottom: 70px;
-  right: 470px;
-  padding: 15px;
+  right: 590px;
+  width: 300px;
+  height: 60px;
+  background: #e46829;
+  text-align: center;
   text-decoration: none;
-  color: #fff;
-  font-size: 30px;
+  font-size: 27px;
+  display: flex;
+    align-items: center;
+    justify-content: center;
+    color: whitesmoke;
 }
 
-.add-recipe-btn-text {
-  display: block;
-  font-size: 30px;
-  margin-bottom: 5px;
+.add-recipe-btn:hover{
+  height:55px;
+  border-bottom: 2px solid #9f000c;
 }
