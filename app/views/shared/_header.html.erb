@@ -27,6 +27,9 @@
   <% end %>
   </div>
   <div class='header-screen'>
+  <% if controller.controller_name == 'lists' %>
+    <%= '買い物リスト'%>
+  <% else %>
     <% case controller.action_name %>
       <% when 'new' %>
         <%= 'レシピ追加' %>
@@ -43,6 +46,7 @@
           <%= 'レシピ一覧' %>
         <% end %>
     <% end %>
+  <% end %>
   </div>
   <div class='nav'>
     <ul class='lists-bar'>
