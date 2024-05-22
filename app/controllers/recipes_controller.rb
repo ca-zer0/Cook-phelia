@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  before_action :authenticate_user!, except: [:index,:show]
+  before_action :authenticate_user!, except: [:index,:show, :search]
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -53,13 +53,15 @@ class RecipesController < ApplicationController
   end
 
   def search
-    category_id = params[:category]
-    kondate_id = params[:kondate]
-
     @recipes = Recipe.all
-    @recipes = @recipes.where(category_id: category_id) if category_id.present?
-    @recipes = @recipes.where(kondate_id: kondate_id) if kondate_id.present?
-  end
+    if params[:category].present? && params[:category] != '1'
+      @recipes = @recipes.where(category_id: params[:category])
+    end
+    if params[:kondate].present? && params[:kondate] != '1'
+      @recipes = @recipes.where(kondate_id: params[:kondate])
+    end
+    render 'search'
+end
 
   private
 
