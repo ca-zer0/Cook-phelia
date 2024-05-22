@@ -1,6 +1,6 @@
 /* border-bottom: 1px solid #eee; */
 
-.add-recipes-screen{
+.new-recipes-screen{
   background-color: whitesmoke;
   width: 100vw;
   height: 100%;
@@ -8,7 +8,7 @@
   margin-top: 70px;
 }
 
-.add-recipes-main{
+.new-recipes-main{
   display: flex;
   justify-content: space-between;
   background-color: white;
@@ -18,7 +18,7 @@
   margin: 0 auto;
 }
 
-.add-recipes-title{
+.new-recipes-title{
   font-size: 22px;
   font-weight: bold;
   text-align: center;
@@ -30,7 +30,7 @@
 }
 
 
-.indispensable {
+.new-indispensable {
   background: #ea352d;
   margin-left: 8px;
   padding: 3px;
@@ -40,65 +40,76 @@
   font-weight: bold;
 }
 
-.weight-bold-text {
+.new-weight-bold-text {
   font-weight: bold;
   min-width: 170px;
   margin-bottom: 10px;
 }
 
-.select-box {
+.new-select-box {
   height: 30px;
-  width: 100%;
+  width: 150px;
   background-color: #f5f5f5;
-  padding-left: 20px;
+  text-align: center;
 }
 
 
-.recipes-text{
+.new-recipes-text{
   text-align: center;
   height: 35px;
   line-height: 35px;
   width: 300px;
 }
 
-.add-btn-contents {
-  width: 70vw;
-  height: 250px;
-  min-width: 450px;
-  margin: 0 auto;
-  text-align: center;
-  background-color: white;
-}
-
-.add-btn {
-  background: #ea352d;
-  border: 1px solid #ea352d;
-  color: #fff;
-  width: 40%;
-  height: 50px;
-  font-size: 14px;
-  margin-bottom: 4vh;
-}
-
-.back{
-  width: 30%;
-  margin: 0 auto;
-}
-
-.back-btn {
-  background: #aaa;
-  border: 1px solid #aaa;
-  color: #fff;
-  padding: 15px 35%;
-  text-decoration: none;
-}
-
-.forms{
+.new-forms{
   display: flex;
-  border: 2px solid #0a0;
 }
 
-.recipe-img{
+.new-recipe-img{
   height: 250px;
   width: 250px;
+}
+
+.new-upload-text{
+  font-size: 20px;
+}
+
+.new-btn-contents{
+  background-color: white;
+  width: 70vw;
+  min-width: 450px;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+.new-btn-contain{
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* 中央揃え（横方向） */
+  align-items: center; /* 中央揃え（縦方向） */
+  height: 100%; /* 親要素の高さと同じにする */
+}
+
+.new-btn{
+  border-bottom: 5px solid #9f000c;
+  border-radius: 100px;
+  width: 300px;
+  height: 60px;
+  padding: 12px 0;
+  background: red;
+  font-size: 27px;
+  display: flex;
+    align-items: center;
+    justify-content: center;
+    color: whitesmoke;
+  cursor: pointer;
+}
+
+.new-btn:hover{
+  padding: 10px 0;
+  border-bottom: 2px solid #9f000c;
+}
+
+.new-amount-text{
+  width: 60px;
 }
