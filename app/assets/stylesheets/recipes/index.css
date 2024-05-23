@@ -7,7 +7,7 @@
 
 .recipe-contents{
   width: 85vw;
-  height: 100vh;
+  height: auto;
   min-width: 450px;
   margin: 0 auto;
   background-color: white;
@@ -16,8 +16,8 @@
 .item-lists{
   display: flex;
   flex-wrap: wrap;
-  width: 1305px;
-  height: 100vh;
+  width: 100%;
+  height: auto;
   padding: 20px 0 20px;
 }
 
