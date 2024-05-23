@@ -3,6 +3,7 @@
   background-color: whitesmoke;
   width: 100vw;
   margin-top: 70px;
+  min-height: 700px;
 }
 
 .recipe-contents{
@@ -11,6 +12,7 @@
   min-width: 450px;
   margin: 0 auto;
   background-color: white;
+  min-height: 600px;
 }
 
 .item-lists{
