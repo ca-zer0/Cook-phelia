@@ -7,7 +7,7 @@
 <%= render "shared/header" %>
 <div class='new-recipes-screen'>
   <h2 class="new-recipes-title">料理の情報を入力</h2>
-    <%= form_with model: @recipe_food, url: recipes_path, local: true do |f| %>
+    <%= form_with model: @recipe_food, url: recipe_path(@recipe_food), local: true do |f| %>
       <%= render 'shared/error_messages', model: @recipe_food %>
     <div class='new-recipes-main'>
 
@@ -59,6 +59,11 @@
               <%= f.text_field :unit, name: 'foods[][unit]', value: food.unit, class:"new-unit-text", id:"food-unit", placeholder:"例：本", maxlength:"15" %>
             </div>
             <% end %>
+            <div class='new-forms'>
+              <%= f.text_field :name, name: 'foods[][name]', value: '', id:"food-name", placeholder:"例：にんじん", maxlength:"15" %>
+              <%= f.text_field :amount, name: 'foods[][amount]', value: '', class:"new-amount-text", id:"food-amount", placeholder:"例：２", maxlength:"15" %>
+              <%= f.text_field :unit, name: 'foods[][unit]', value: '', class:"new-unit-text", id:"food-unit", placeholder:"例：本", maxlength:"15" %>
+            </div>
           </div>
         </div>
       </div>
