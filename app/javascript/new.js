@@ -1,6 +1,6 @@
 function addForms() {
   console.log("addForms function called");
-  if (window.location.pathname == '/recipes/new') {
+  if (window.location.pathname.match(/\/recipes\/new|\/recipes\/\d+\/edit/)) {
   const add = document.getElementById('add');
   const forms = document.querySelector('.new-forms');
 
