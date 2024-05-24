@@ -35,15 +35,25 @@ class RecipesController < ApplicationController
   end
 
   def update
+    valid_foods = foods_params.select { |food| food.values.all?(&:present?) }
+  
     ActiveRecord::Base.transaction do
       @recipe_food.update!(recipe_params)
       @recipe_food.foods.each_with_index do |food, i|
-        food.update!(foods_params[i])
+        next if valid_foods[i].nil?
+        food.update!(valid_foods[i])
+      end
+  
+      # 新たな食材を追加
+      if valid_foods.size > @recipe_food.foods.size
+        @recipe_food.foods.build(valid_foods[@recipe_food.foods.size..-1])
+        @recipe_food.save!
       end
     end
+  
     redirect_to recipe_path
-  rescue ActiveRecord::RecordInvalid
-    Rails.logger.debug @recipe_food.errors.full_messages
+  rescue => e
+    Rails.logger.error e
     render :edit, status: :unprocessable_entity
   end
 
@@ -67,11 +77,11 @@ class RecipesController < ApplicationController
 
   def recipe_params
     params.require(:recipe).permit(:image, :name, :category_id, :kondate_id, :people, foods: [:name, :amount, :unit])
-    end
+  end
   
   def foods_params
     params.require(:foods).map do |food|
-      food.permit(:name, :amount, :recipe_id)
+      food.permit(:name, :amount, :unit, :recipe_id)
     end
   end
 
