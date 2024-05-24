@@ -1,7 +1,7 @@
 <head>
-<%= stylesheet_link_tag 'lists/index', :media => "all" %>
-<%= stylesheet_link_tag 'reset', :media => "all", 'data-turbolinks-track': 'reload' %>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <%= stylesheet_link_tag 'reset', :media => "all" %>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -19,16 +19,41 @@
         <% end %>
       </div>
       <div class='list-right'>
-      <% @recipes.each do |recipe| %>
-      
-        <% grouped_foods = recipe.foods.group_by(&:name) %>
-      
-        <% grouped_foods.each do |name, foods| %>
-          <p><%= name %>: <%= foods.sum(&:amount) %></p>
+        <% grouped_foods = @recipes.flat_map(&:foods).group_by { |food| [food.name, food.unit] } %>
+
+        <% grouped_foods.each do |(name, unit), foods| %>
+          <p>
+            <%= name %>:
+            <%= foods.sum { |food| food.amount.to_i } %>
+            <%= unit %>
+            <button class="detail-btn" data-recipe-ids="<%= foods.map(&:recipe).map(&:id).join(",") %>">!</button>
+          </p>
         <% end %>
-      <% end %>
       </div>
     </div>
   </div>
+  <div id="recipeModal" class="modal-fade" tabindex="-1" role="dialog">
+  <div class="modal">
+    <div class="modal-inner">
+      <div class="modal__button-wrap">
+        <button class="close-button js-close-button">
+        <span></span>
+        <span></span>
+        </button>
+      </div>
+      <div class="modal-contents">
+        <div class="modal-body">
+          <!-- Recipe details will be inserted here -->
+            <div class="modal-details">
+              <!-- Images and recipe names will be inserted here -->
+            </div>
+            <div class="modal-ingredients">
+              <!-- Ingredients will be inserted here -->
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
   <%= render "shared/footer" %>
 </body>
