@@ -1,10 +1,9 @@
 <% [@recipe_food, *@foods].each do |model| %>
-  <% if model.errors.any? %>
+  <% model.errors.full_messages.each do |message| %>
+    <% next if message == 'is invalid' %>
     <div class="error-alert">
-      <ul>
-        <% model.errors.full_messages.each do |message| %>
-          <li class='error-message'><%= message %></li>
-        <% end %>
+      <ul class= 'error-messages'>
+        <li class='error-message'><%= message %></li>
       </ul>
     </div>
   <% end %>

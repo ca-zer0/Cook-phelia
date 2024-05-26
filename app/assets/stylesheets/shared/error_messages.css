@@ -1,0 +1,9 @@
+.error-messages{
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  width: 1075px;
+  margin-left: 181px;
+  font-weight: bold;
+  color: brown;
+}
