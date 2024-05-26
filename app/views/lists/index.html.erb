@@ -19,23 +19,26 @@
         <% end %>
       </div>
       <div class='list-right'>
-        <% grouped_foods = @recipes.flat_map(&:foods).group_by { |food| [food.name, food.unit] } %>
-
-        <% grouped_foods.each do |(name, unit), foods| %>
-          <p>
-            <%= name %>:
-            <%= foods.sum { |food| food.amount.to_i } %>
-            <%= unit %>
+      <% grouped_foods = @recipes.flat_map(&:foods).group_by { |food| [food.name, food.unit] } %>
+    
+      <% grouped_foods.each_with_index do |((name, unit), foods), index| %>
+        <p>
+          <%= check_box_tag "#{name}-#{unit}", "", false, class: "myCheckbox", id: "myCheckbox-#{index}" %>
+            <span class="myText">
+              <%= name %>:
+              <%= foods.sum { |food| food.amount.to_i } %>
+              <%= unit %>
+            </span>
             <button class="detail-btn" data-recipe-ids="<%= foods.map(&:recipe).map(&:id).join(",") %>">!</button>
-          </p>
-        <% end %>
-      </div>
+        </p>
+      <% end %>
+    </div>
     </div>
   </div>
   <div id="recipeModal" class="modal-fade" tabindex="-1" role="dialog">
   <div class="modal">
     <div class="modal-inner">
-      <div class="modal__button-wrap">
+    <div class="modal__button-wrap">
         <button class="close-button js-close-button">
         <span></span>
         <span></span>
@@ -54,6 +57,6 @@
       </div>
     </div>
   </div>
-</div>
+  </div>
   <%= render "shared/footer" %>
 </body>
