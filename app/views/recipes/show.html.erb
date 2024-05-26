@@ -16,14 +16,14 @@
       </div>
       <div class='show-right-items'>
       <div class='show-categories'>
-      <p>カテゴリー: <%= @recipe_food.category.name %></p>
-      <p>構成: <%= @recipe_food.kondate.name %></p>
-      <p class="food">材料</p>
-      <p class="recipe-people"><%= @recipe_food.people %></p> 
+      <div class='show-text'>カテゴリー: <%= @recipe_food.category.name %></div>
+      <div class='show-text'>構成: <%= @recipe_food.kondate.name %></div>
+      <p class="show-food">材料</p>
+      <p class="show-recipe-people"><%= @recipe_food.people %></p> 
       <% @recipe_food.foods.each do |food| %>
-        <div class="food-item">
-          <span class="food-name"><%= food.name %></span>
-          <span class="food-amount-unit"><%= food.amount %> <%= food.unit%></span>
+        <div class="show-food-item">
+          <span class="show-food-name"><%= food.name %></span>
+          <span class="show-food-amount-unit"><%= food.amount %> <%= food.unit%></span>
         </div>
       <% end %>
       </div>

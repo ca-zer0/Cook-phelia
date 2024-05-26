@@ -1,19 +1,19 @@
 .list-screen{
   padding: 50px 0 ;
-  height: 100vh;
   width: 100vw;
-  background-color: black;
+  background-color: whitesmoke;
   margin-top: 70px;
+  min-height: 700px;
 }
 
 .list-items{
   width: 85vw;
-  height: 100vh;
   min-width: 450px;
   margin: 0 auto;
-  background-color: aqua;
+  background-color: white;
   display: flex;
   align-content: flex-start;
+  min-height: 600px;
 }
 
 .list-left{
@@ -22,18 +22,123 @@
   flex-wrap: wrap;
   justify-content: flex-start;
   align-content: flex-start;
-  border: 1px solid gray;
+  border-right: 1px solid gray;
   padding: 10px;
 }
 
 .image{
 height: 190px;
 width: 190px;
-margin: 2%;
+margin: 1%;
+position: relative;
+border: 2px solid gray;
+}
+
+.delete-recipe-btn {
+  position: absolute;
+  top: -15px;
+  right: 4px; 
+  background-color: orange;
+  color: #fff;
+  border-radius: 50%;
+  padding: 5px 10px;
 }
 
 .list-recipe-img{
   height: 100%;
   width: 100%;
   object-fit: cover;
+}
+
+.modal-fade {
+  background: rgba(0, 0, 0, .2);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: -1;
+  }
+  
+  
+  .modal {
+  position: fixed;
+  top: 150px;
+  left: 200px;
+  width: auto;
+  max-width: 80%;
+  height: auto;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  }
+
+.modal-inner {
+  background: #fff;
+  box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 13px;
+  display: block;
+  padding: 21px 8px 21px;
+  min-width: 400px;
+  max-height: 90vh; /* 追加 */
+  overflow-y: auto; /* 追加 */
+}
+
+.modal-body {
+  padding-top: 15px;
+  padding-bottom: 23px;
+  max-width: 80vw; /* 追加 */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+}
+
+.modal-recipe-img{
+  height: 180px;
+  width: 180px;
+}
+
+.modal-text{
+  display: none;
+}
+
+.modal-recipe-name{
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 4px;
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid black;
+}
+
+.modal-ingredients{
+  font-size: 17px;
+}
+
+.modal-food{
+  font-weight: bold;
+  font-size: 20px;
+  margin: 5px 0;
+}
+
+.recipe-details{
+  margin-right: 10px;
+}
+
+.list-right{
+  font-size: 30px;
+  padding-left: 10px;
+}
+
+input[type="checkbox"] {
+  transform: scale(1.5);
+}
+
+.detail-btn {
+  position: relative;
+  top: -7px;
+  right: -5px;
 }

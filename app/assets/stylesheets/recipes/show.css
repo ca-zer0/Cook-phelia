@@ -51,12 +51,12 @@
   text-align: center;
 }
 
-p{
+.show-text{
   font-size: 40px;
   border-bottom: solid 1px gray;
 }
 
-p.food {
+p.show-food {
   border-bottom: none;
   margin-top: 50px;
   text-align: start;
@@ -67,7 +67,7 @@ p.no-border{
   border-bottom: none;
 }
 
-p.recipe-people {
+p.show-recipe-people {
   font-size: 20px;
   border-bottom: none;
   text-align: start;
@@ -128,7 +128,7 @@ p.recipe-people {
 }
 
 
-.food-item {
+.show-food-item {
   margin-top: 15px;
   padding: 0 45px;
   display: flex;
@@ -137,10 +137,10 @@ p.recipe-people {
   font-size: 25px;
 }
 
-.food-name {
+.show-food-name {
   text-align: left;
 }
 
-.food-amount-unit {
+.show-food-amount-unit {
   text-align: right;
 }
