@@ -14,4 +14,6 @@ class Recipe < ApplicationRecord
     validates :people
     validates :user
     end
+
+    validates_associated :foods
 end

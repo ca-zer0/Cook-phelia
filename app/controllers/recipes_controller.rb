@@ -15,24 +15,19 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @recipe = Recipe.new(recipe_params)
-    @recipe.user_id = current_user.id
+    @recipe_food = Recipe.new(recipe_params)
+    @recipe_food.user_id = current_user.id
   
-    if @recipe.save
-      valid_foods = foods_params.select { |food| food.values.all?(&:present?) }
-      valid_foods.each do |food_params|
-        food = @recipe.foods.build(food_params)
-        unless food.save
-          @recipe.destroy
-          flash[:error] = food.errors.full_messages
-          render :new
-          return
-        end
-      end
+    # 全てのフードを作成し、valid?メソッドで検証を実行する
+    @foods = params[:foods].map do |food_params|
+      @recipe_food.foods.build(food_params.permit(:name, :amount, :unit))
+    end
+  
+    # フードとレシピが全て有効なら保存
+    if @recipe_food.valid? && @foods.all?(&:valid?)
+      @recipe_food.save
       redirect_to recipes_path, notice: 'Recipe was successfully created.'
     else
-      flash[:error] = @recipe.errors.full_messages
-      @recipe_food = @recipe  # <- この行を追加します
       render :new, status: :unprocessable_entity
     end
   end

@@ -7,8 +7,8 @@
 <%= render "shared/header" %>
 <div class='new-recipes-screen'>
   <h2 class="new-recipes-title">料理の情報を入力</h2>
-    <%= form_with model: @recipe_food, url: recipes_path, local: true do |f| %>
-      <%= render 'shared/error_messages', model: @recipe_food %>
+  <%= form_with model: @recipe_food, url: recipes_path, local: true do |f| %>
+    <%= render 'shared/error_messages', model: f.object %>
     <div class='new-recipes-main'>
 
       <div class='new-left-contents'>
