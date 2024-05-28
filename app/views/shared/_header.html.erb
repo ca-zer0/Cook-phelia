@@ -33,7 +33,11 @@
     <% case controller.action_name %>
       <% when 'new' %>
         <%= 'レシピ追加' %>
+      <% when 'create' %>
+        <%= 'レシピ追加' %>
       <% when 'edit' %>
+        <%= 'レシピ編集' %>
+      <% when 'update' %>
         <%= 'レシピ編集' %>
       <% when 'search' %>
         <%= '検索結果一覧' %>
@@ -47,7 +51,7 @@
         <% end %>
     <% end %>
   <% end %>
-  </div>
+</div>
   <div class='nav'>
     <ul class='lists-bar'>
       <li class="header-lists-btn" id="btn">
