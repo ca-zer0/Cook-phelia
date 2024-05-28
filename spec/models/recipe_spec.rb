@@ -40,7 +40,7 @@ RSpec.describe Recipe, type: :model do
       it "imageがない場合は登録できないこと" do
         @recipe.image = nil
         @recipe.valid?
-        expect(@recipe.errors.full_messages).to include("画像は必須です")
+        expect(@recipe.errors.full_messages).to include("写真は必須です")
       end
 
       it 'category_idが"---"では登録できない' do
@@ -58,7 +58,7 @@ RSpec.describe Recipe, type: :model do
       it 'userが紐づいていない場合は登録できない' do
         @recipe.user = nil
         @recipe.valid?
-        expect(@recipe.errors.full_messages).to include('User must exist')
+        expect(@recipe.errors.full_messages).to include('must exist')
       end
     end
   end
