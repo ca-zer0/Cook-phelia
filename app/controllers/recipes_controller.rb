@@ -19,7 +19,7 @@ class RecipesController < ApplicationController
     @recipe_food.user_id = current_user.id
   
     # 全てのフードを作成し、valid?メソッドで検証を実行する
-    @foods = params[:foods].map do |food_params|
+    @foods = params[:foods].reject { |food_params| food_params.values.all?(&:blank?) }.map do |food_params|
       @recipe_food.foods.build(food_params.permit(:name, :amount, :unit))
     end
   
