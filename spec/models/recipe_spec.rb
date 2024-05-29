@@ -37,7 +37,7 @@ RSpec.describe Recipe, type: :model do
         expect(@recipe.errors.full_messages).to include("何人前かが空白です")
       end
 
-      it "imageがない場合は登録できないこと" do
+      it "imageがない場合は登録できない" do
         @recipe.image = nil
         @recipe.valid?
         expect(@recipe.errors.full_messages).to include("写真は必須です")
