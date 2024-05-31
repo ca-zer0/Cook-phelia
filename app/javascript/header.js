@@ -15,15 +15,15 @@ function pullDown() {
   
   // イベントハンドラ関数
   function mouseOverFunc() {
-    this.setAttribute('src', '/assets/user2.jpg');
+    imgTag.src = '/assets/user2.jpg';
 }
 
-function mouseOutFunc() {
-    this.setAttribute('src', '/assets/user.jpg');
-}
+  function mouseOutFunc() {
+    imgTag.src = '/assets/user.jpg';
+  }
 
-imgTag.addEventListener('mouseover', mouseOverFunc);
-imgTag.addEventListener('mouseout', mouseOutFunc);
+  imgTag.addEventListener('mouseover', mouseOverFunc);
+  imgTag.addEventListener('mouseout', mouseOutFunc);
   
   
   function pullDownButtonClick() {
