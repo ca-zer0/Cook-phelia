@@ -3,7 +3,7 @@ function pullDown() {
   const pullDownButton = document.getElementById("lists");
   const pullDownLists = document.getElementById('btn');
   const imgTag = document.querySelector('.user-btn');
-  const originalSrc = imgTag.getAttribute('src');
+  const originalSrc = imgTag.getAttribute('image_tag');
   const pullDownParents = document.getElementById("pull-down");
   const pullDownList = document.getElementById("down-lists");
   const search = document.getElementById('search-btn');
@@ -15,13 +15,12 @@ function pullDown() {
   
   // イベントハンドラ関数
   function mouseOverFunc() {
-  this.setAttribute('src', '/assets/user2.jpg');
-  }
-  
-  
-  function mouseOutFunc() {
-  this.setAttribute('src', originalSrc);
-  }
+    this.setAttribute('src', '/assets/user2.jpg');
+}
+
+function mouseOutFunc() {
+    this.setAttribute('src', '/assets/user.jpg');
+}
   
   
   function pullDownButtonClick() {
