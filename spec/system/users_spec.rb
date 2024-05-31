@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe "Users", type: :system do
   before do
     @user = FactoryBot.build(:user)
+    driven_by(:selenium_chrome_headless)
   end
 
   context 'ユーザー新規登録ができるとき' do 
@@ -19,9 +20,8 @@ RSpec.describe "Users", type: :system do
         sleep 1
       }.to change { User.count }.by(1)
       expect(page).to have_current_path(recipes_path)
-      expect(
-        find('user').find('user-nav').click
-      ).to have_content('ログアウト')
+      find('.header-nav-btn').click
+      expect(page).to have_selector('a', text: 'ログアウト', visible: :all)
       expect(page).to have_no_content('新規登録')
       expect(page).to have_no_content('ログイン')
     end
