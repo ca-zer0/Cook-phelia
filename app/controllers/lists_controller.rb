@@ -1,22 +1,23 @@
 class ListsController < ApplicationController
+  before_action :authenticate_user!
 
   def index
-    @lists = List.includes(:recipe).all
-    @recipe_ids = List.pluck(:recipe_id)
+    @lists = current_user.lists.includes(:recipe).all
+    @recipe_ids = current_user.lists.pluck(:recipe_id)
     @recipes = Recipe.where(id: @recipe_ids)
   end
 
   def create
     @list = current_user.lists.new(list_params)
     if @list.save
-      redirect_to recipes_path
+      redirect_to recipes_path, notice: 'Successfully added to the list.'
     else
       render json: @list.errors, status: :unprocessable_entity
     end
   end
 
   def destroy
-    @list = current_user.lists.find_by_recipe_id(params[:recipe_id]) 
+    @list = current_user.lists.find_by(recipe_id: params[:recipe_id])
     if @list.present?
       @list.destroy
       flash[:notice] = "Successfully removed from the list."
