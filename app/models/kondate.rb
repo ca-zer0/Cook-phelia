@@ -6,6 +6,7 @@ class Kondate < ActiveHash::Base
    { id: 4, name: '小皿' },
    { id: 5, name: 'スープ' },
    { id: 6, name: 'デザート' },
+   { id: 7, name: 'その他' },
   ]
 
   include ActiveHash::Associations

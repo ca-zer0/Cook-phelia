@@ -1,5 +1,9 @@
 FactoryBot.define do
   factory :food do
-    
-  end
+
+    name {'てすと'}
+    amount {5}
+    unit {'g'}
+    association :recipe
+    end
 end

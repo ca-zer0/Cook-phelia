@@ -7,7 +7,7 @@
   <div class='user'>
     <ul class='user-nav'>
       <li class='header-nav-btn' id="lists">
-      <img src="/assets/user.jpg" height="70" width="70" class="user-btn" alt="User">
+      <%= image_tag "user.jpg", height: 70, width: 70, class: "user-btn", alt: "User" %>
       </li>
     </ul>
     <ul class="header-show-lists hidden" id="pull-down">
@@ -33,7 +33,11 @@
     <% case controller.action_name %>
       <% when 'new' %>
         <%= 'レシピ追加' %>
+      <% when 'create' %>
+        <%= 'レシピ追加' %>
       <% when 'edit' %>
+        <%= 'レシピ編集' %>
+      <% when 'update' %>
         <%= 'レシピ編集' %>
       <% when 'search' %>
         <%= '検索結果一覧' %>
@@ -47,7 +51,7 @@
         <% end %>
     <% end %>
   <% end %>
-  </div>
+</div>
   <div class='nav'>
     <ul class='lists-bar'>
       <li class="header-lists-btn" id="btn">

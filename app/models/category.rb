@@ -6,6 +6,7 @@ class Category < ActiveHash::Base
    { id: 4, name: '中華' },
    { id: 5, name: 'エスニック' },
    { id: 6, name: 'パスタ' },
+   { id: 7, name: 'その他' },
   ]
 
   include ActiveHash::Associations
