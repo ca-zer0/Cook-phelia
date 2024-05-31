@@ -3,7 +3,7 @@ function pullDown() {
   const pullDownButton = document.getElementById("lists");
   const pullDownLists = document.getElementById('btn');
   const imgTag = document.querySelector('.user-btn');
-  const originalSrc = imgTag.getAttribute('image_tag');
+  const originalSrc = imgTag.getAttribute('src');
   const pullDownParents = document.getElementById("pull-down");
   const pullDownList = document.getElementById("down-lists");
   const search = document.getElementById('search-btn');
