@@ -1,9 +1,9 @@
 function pullDown() {
-  console.log('click event fired!');
   const pullDownButton = document.getElementById("lists");
   const pullDownLists = document.getElementById('btn');
   const imgTag = document.querySelector('.user-btn');
   const originalSrc = imgTag.getAttribute('src');
+  const hoverSrc = imgTag.getAttribute('data-hover-src');
   const pullDownParents = document.getElementById("pull-down");
   const pullDownList = document.getElementById("down-lists");
   const search = document.getElementById('search-btn');
@@ -15,15 +15,12 @@ function pullDown() {
   
   // イベントハンドラ関数
   function mouseOverFunc() {
-    imgTag.src = '/assets/user2.jpg';
-}
-
-  function mouseOutFunc() {
-    imgTag.src = '/assets/user.jpg';
+    imgTag.src = hoverSrc;
   }
 
-  imgTag.addEventListener('mouseover', mouseOverFunc);
-  imgTag.addEventListener('mouseout', mouseOutFunc);
+  function mouseOutFunc() {
+    imgTag.src = originalSrc;
+  }
   
   
   function pullDownButtonClick() {
