@@ -21,6 +21,9 @@ function pullDown() {
 function mouseOutFunc() {
     this.setAttribute('src', '/assets/user.jpg');
 }
+
+imgTag.addEventListener('mouseover', mouseOverFunc);
+imgTag.addEventListener('mouseout', mouseOutFunc);
   
   
   function pullDownButtonClick() {
