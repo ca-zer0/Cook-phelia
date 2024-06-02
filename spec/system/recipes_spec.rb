@@ -100,3 +100,20 @@ RSpec.describe 'レシピ追加', type: :system do
     end
   end
 end
+
+RSpec.describe 'レシピ編集', type: :system do
+  before do
+    @recipe1 = FactoryBot.create(:recipe)
+    @recipe2 = FactoryBot.create(:recipe)
+  end
+  context 'レシピ編集ができるとき' do
+    it 'ログインしたユーザーは自分が投稿したレシピの編集ができる' do
+    end
+  end
+  context 'レシピ編集ができないとき' do
+    it 'ログインしたユーザーは自分以外が投稿したレシピの編集画面には遷移できない' do
+    end
+    it 'ログインしていないとレシピの編集画面には遷移できない' do
+    end
+  end
+end
