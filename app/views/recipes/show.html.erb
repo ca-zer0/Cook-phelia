@@ -31,13 +31,16 @@
     </div>
   </div>
   <div class='show-recipe-btns'>
+  <% if user_signed_in? %>
     <%= link_to edit_recipe_path(@recipe_food), class: 'show-edit-recipe-btn' do %>
       <span class='show-edit-recipe--btn-text'>編集する</span>
     <% end %>
     <%= link_to recipe_path(@recipe_food), data: {turbo_method: :delete}, class: 'show-destroy-recipe-btn' do %>
       <span class='show-destroy-recipe--btn-text'>削除する</span>
     <% end %>
-    <div class='show-addlist-recipe-btn' id="add-to-list-<%= @recipe_food.id %>" style="cursor:pointer;">
+  <% end %>
+
+  <div class='show-addlist-recipe-btn' id="add-to-list-<%= @recipe_food.id %>" style="cursor:pointer;" data-logged-in="<%= user_signed_in? %>">
         <span class='show-addlist-recipe--btn-text'>リストに<br>追加する</span>
       </div>
   </div>
