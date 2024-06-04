@@ -1,6 +1,7 @@
 class RecipesController < ApplicationController
   before_action :authenticate_user!, except: [:index,:show, :search]
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
+  before_action :check_user, only: [:edit, :update, :destroy]
 
   def index
     if user_signed_in?
@@ -93,4 +94,9 @@ class RecipesController < ApplicationController
     @recipe_food = Recipe.find(params[:id])
   end
 
+  def check_user
+    if @recipe_food.user_id != current_user.id
+      redirect_to root_path
+    end
+  end
 end

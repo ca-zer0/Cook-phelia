@@ -1,61 +1,36 @@
-# README
+# Cook-phelia
+ レシピ登録しておくと買い物リストを自動で作成できるアプリです。<br>
+（ワンクリックでリストに追加、リストから削除が可能）<br>
+ 洋食や中華、主菜や副菜などカテゴリーでの検索もできます。<br>
+ ユーザーごとに買い物リストを持つことができます。
+ <img width="1400" alt="スクリーンショット " src="https://i.gyazo.com/b7c05757190a2661fd8fe19b588da209.jpg">
 
-## users テーブル
+ # URL
+https://cook-phelia.onrender.com <br >
+画面中部のログインせずに始めるボタンから、メールアドレスとパスワードを入力せずにログインできます。
 
-| Column             | Type   | Options                   |
-| -----------------  | ------ | --------                  |
-| email              | string | null: false, unique: true |
-| encrypted_password | string | null: false               |
-| name               | string | null: false               |
+# 使用技術
+- Ruby 3.2.0
+- Ruby on Rails 7.0.0
+- mysql2 
+- javascript
+- jquely
+- Puma 5.6.8
+- Render
+- RSpec
 
-has_many :lists
-has_many :resipes
+# 機能一覧
+- ユーザー登録、ログイン機能(devise)
+- レシピ（一覧表示/追加/編集/レシピカテゴリ検索）
+- 買い物リスト（自動作成/材料をどのレシピに使うか表示する（モーダルウィンドウ））
 
-## recipes テーブル
+# テスト
+- RSpec
+  - 単体テスト(model)
+  - 結合テスト(System)
 
-| Column             | Type    | Options     |
-| -----------------  | ------  | --------    |
-| name               | string  | null: false |
-| category_id        | integer | null: false |
-| kondate_id         | integer | null: false |
-| people             | string  | null: false |
+# GIF
+- レシピ検索機能
 
-belongs_to :category
-belongs_to :kondate
-has_many :foods, dependent: :destroy
-has_one_attached :image
-belongs_to :lists
-has_many :users
-
-
-## foods テーブル
-
-| Column    | Type       | Options     |
-| -------   | ------     | --------    |
-| name      | string     | null: false |
-| amount    | integer    | null: false |
-| unit      | string     | null: false |
-| recipe_id | references | null: false |
-
-belongs_to :recipe
-
-## recipe_foods テーブル
-
-| Column | Type       | Options     |
-| -------| ------     | --------    |
-| recipe | references | null: false |
-| food   | references | null: false |
-
-belongs_to :recipe
-belongs_to :food
-
-
-## lists テーブル
-
-| Column | Type       | Options     |
-| -------| ------     | --------    |
-| user   | references | null: false |
-| memo   | text       |             |
-
-belongs_to :user
-has_many :recipes
+- 買い物リストの材料使用レシピ表示（モーダルウィンドウ）
+  https://github.com/ca-zer0/Cook-phelia/assets/165775822/fe58e092-311f-4843-b801-fd5edc23fb7c
