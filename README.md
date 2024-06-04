@@ -33,4 +33,4 @@ https://cook-phelia.onrender.com <br >
 - レシピ検索機能
 
 - 買い物リストの材料使用レシピ表示（モーダルウィンドウ）
-  https://github.com/ca-zer0/Cook-phelia/assets/165775822/fe58e092-311f-4843-b801-fd5edc23fb7c
+  (https://github.com/ca-zer0/Cook-phelia/assets/165775822/effba560-e91a-48cf-9689-487a18b34180)
