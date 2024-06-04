@@ -28,3 +28,9 @@ https://cook-phelia.onrender.com <br >
 - RSpec
   - 単体テスト(model)
   - 結合テスト(System)
+
+# GIF
+- レシピ検索機能
+
+- 買い物リストの材料使用レシピ表示（モーダルウィンドウ）
+  https://github.com/ca-zer0/Cook-phelia/assets/165775822/fe58e092-311f-4843-b801-fd5edc23fb7c
