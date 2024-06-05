@@ -21,8 +21,8 @@ https://cook-phelia.onrender.com <br >
 
 # 機能一覧
 - ユーザー登録、ログイン機能(devise)
-- レシピ（一覧表示/追加/編集/レシピカテゴリ検索）
-- 買い物リスト（自動作成/材料をどのレシピに使うか表示する（モーダルウィンドウ））
+- レシピ（一覧表示/追加/編集/レシピカテゴリ検索/買い物リストへの追加、削除）
+- 買い物リスト（自動作成/材料をどのレシピに使うか表示する（モーダルウィンドウ）/リストからレシピを削除）
 
 # テスト
 - RSpec
@@ -30,7 +30,15 @@ https://cook-phelia.onrender.com <br >
   - 結合テスト(System)
 
 # GIF
-- レシピ検索機能
+- レシピのカテゴリー検索
+  
+https://github.com/ca-zer0/Cook-phelia/assets/165775822/aa39f42f-894d-41cd-bc97-8e8828651c45
 
-- 買い物リストの材料使用レシピ表示（モーダルウィンドウ）
-  (https://github.com/ca-zer0/Cook-phelia/assets/165775822/effba560-e91a-48cf-9689-487a18b34180)
+- レシピ追加画面のform増殖
+  
+https://github.com/ca-zer0/Cook-phelia/assets/165775822/d67a6369-d21b-4e0e-acd3-e3dbb0998623
+
+- 買い物リスト表示画面でのモーダルウィンドウ表示
+  
+https://github.com/ca-zer0/Cook-phelia/assets/165775822/631ef7f8-c854-4802-a368-bce834b328ce
+
